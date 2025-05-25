@@ -1,0 +1,43 @@
+# Use an official Python runtime as a parent image
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+ARG POETRY_VERSION=1.8.2 # As per run-book
+ENV POETRY_HOME="/opt/poetry"
+# ENV POETRY_VENV="/opt/poetry/.venv" # Not strictly needed if we use poetry run
+ENV PATH="$POETRY_HOME/bin:$PATH" # Ensure poetry is on PATH before venv activation needed for install
+
+# Install system dependencies (if any)
+# RUN apt-get update && apt-get install -y --no-install-recommends some-package
+
+# Install Poetry
+RUN curl -sSL https://install.python-poetry.org | python3 - --version ${POETRY_VERSION}
+# Make sure poetry is executable and in PATH for subsequent RUN commands
+# RUN poetry --version # Verify install
+
+# Set work directory
+WORKDIR /app
+
+# Copy only files necessary for poetry install first to leverage Docker cache
+COPY pyproject.toml poetry.lock ./ 
+# poetry.toml* and README.md* are not essential for lock/install
+
+# Install project dependencies
+RUN poetry install --no-dev --no-interaction --no-ansi --all-extras
+# Added --all-extras to ensure optional groups like 'standard' for uvicorn are included if defined that way
+# Though uvicorn[standard] is a direct dep now. If not, poetry install by default installs main group.
+# If dev dependencies were needed for some runtime tool an image uses, remove --no-dev
+
+# Clean up pip cache to reduce image size
+RUN rm -rf /root/.cache/pip
+
+# Copy the rest of the application code
+COPY . /app/
+# This includes aep/, backend/, docs/, qa/, scripts/, etc.
+
+# The command to run the application will be specified in docker-compose.yml
+# EXPOSE 8000 is already in the previous version, it's good practice.
+EXPOSE 8000 

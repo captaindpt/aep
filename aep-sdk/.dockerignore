@@ -1,0 +1,49 @@
+# Git
+.git
+.gitignore
+
+# Poetry / Python
+.venv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE / OS specific
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+analysis/*.ipynb
+
+# Node / UI related (if UI is built outside Docker context sometimes)
+# These are typically in ui/.dockerignore but can be here too for root context builds.
+# node_modules/
+# ui/node_modules/
+# ui/dist/
+# ui/.vite/
+
+# Data files (if not intended to be in image)
+# data/ 
+# Might be mounted as a volume instead
+
+# Test outputs or logs if generated locally
+htmlcov/
+.coverage
+*.log
+
+# Specific to this project if ui build artifacts are ever in root
+# (ui Dockerfile handles its own context, so these might be redundant here)
+# /ui/dist
+# /ui/node_modules 

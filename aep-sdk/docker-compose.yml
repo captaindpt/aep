@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile.api # Assuming a Dockerfile.api for the backend
+    command: poetry run uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./:/app # Mounts the whole aep-sdk directory into /app in the container
+      # Mount .aep data directory to persist ledger data outside the container
+      - ./data/.aep:/app/data/.aep 
+      # Mount docs directory if RAG chain loads them from a relative path inside /app
+      - ./docs:/app/docs 
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY} # Pass API key from host environment
+      - PYTHONPATH=/app # Ensure 'aep' and 'backend' modules are findable
+    ports: 
+      - "8000:8000"
+    depends_on:
+      - ui # Optional: if api needs ui to be up for some reason (not typical for this setup)
+             # More likely ui depends on api, which is handled by ui service.
+
+  ui:
+    build:
+      context: ./ui # Build context is the ui directory
+      dockerfile: Dockerfile # Expects Dockerfile in ./ui/
+    # depends_on: # Not strictly needed for build, but for runtime if it calls api on start
+    #   - api 
+    environment:
+      # VITE_API_BASE_URL for React app to know where the backend is
+      # The React app will run in the browser, so it needs to target the *host* port for the api
+      # if accessed directly, or the service name if an internal Docker network proxy is used.
+      # For simplicity with `ports: ["3000:80"]` for UI (Nginx), and API on 8000, 
+      # if the React app calls /api, Nginx in UI container needs to proxy to `api:8000`.
+      # Or, VITE_API_BASE can be set to http://localhost:8000 if user accesses UI on localhost:3000
+      # and API is on localhost:8000. For container-to-container, it'd be http://api:8000.
+      # The run-book specifies VITE_API_BASE=http://api:8000, which implies Nginx proxy in UI container.
+      - VITE_API_BASE_URL=http://api:8000 
+    ports:
+      - "3000:80" # Nginx in ui container serves on port 80, mapped to host 3000
+
+  jupyter:
+    image: jupyter/minimal-notebook:python-3.11 # Using specified image
+    volumes:
+      - ./:/home/jovyan/work/aep-sdk # Mount aep-sdk into a subdir of default work
+    working_dir: /home/jovyan/work/aep-sdk # Set working dir to the mounted project
+    # To install project dependencies (like aep sdk) into Jupyter:
+    # Option 1: Build custom Jupyter image with poetry install (more robust)
+    # Option 2: Run pip install in command (simpler for dev)
+    # command: >
+    #   bash -c "pip install -e . && 
+    #            start-notebook.sh --NotebookApp.token='' --NotebookApp.notebook_dir=/home/jovyan/work/aep-sdk/analysis"
+    # Simpler command from run-book, assumes manual pip install or SDK in PYTHONPATH in notebook
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.notebook_dir=/home/jovyan/work/aep-sdk/analysis
+    ports:
+      - "8888:8888"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONPATH=/home/jovyan/work/aep-sdk # Ensure aep module is discoverable
+
+# Define a top-level data volume if you want docker to manage it, instead of bind mount.
+# volumes:
+#   aep_data: 

@@ -1,0 +1,40 @@
+.App {
+  text-align: left;
+  margin: 20px;
+  font-family: sans-serif;
+}
+
+.App-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.markdown-body {
+  line-height: 1.6;
+}
+
+.markdown-body h1, 
+.markdown-body h2, 
+.markdown-body h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body p, 
+.markdown-body li {
+  margin-bottom: 0.8em;
+  /* Add some padding/margin to make them distinct blocks for IntersectionObserver */
+  /* This helps ensure threshold crossings are clear */
+  padding: 5px 0; 
+}
+
+/* Add more styles as needed for good markdown presentation */ 

@@ -1,0 +1,1120 @@
+- id: Q000
+  question: What is LangChain and why was it created?
+  expected_answer_keywords:
+  - framework
+  - LLMs
+  - applications
+  golden_doc_sources:
+  - concepts/why_langchain.mdx
+  - introduction.mdx
+  category: Core
+  difficulty: Easy
+- id: Q001
+  question: Explain the role of an Agent in LangChain.
+  expected_answer_keywords:
+  - decision
+  - tool
+  - reasoning
+  golden_doc_sources:
+  - concepts/agents.mdx
+  category: Core
+  difficulty: Easy
+- id: Q002
+  question: How do I install LangChain with extras for tracing?
+  expected_answer_keywords:
+  - pip
+  - langchain
+  - langsmith
+  golden_doc_sources:
+  - how_to/installation.mdx
+  category: How-To
+  difficulty: Easy
+- id: Q003
+  question: Show the minimal LCEL chain that streams token-by-token.
+  expected_answer_keywords:
+  - '|'
+  - stream
+  - runnable
+  golden_doc_sources:
+  - concepts/lcel.mdx
+  - concepts/streaming.mdx
+  category: LCEL
+  difficulty: Medium
+- id: Q004
+  question: Compare FAISS and Chroma vector stores in LangChain.
+  expected_answer_keywords:
+  - faiss
+  - chroma
+  - differences
+  golden_doc_sources:
+  - concepts/vectorstores.mdx
+  category: Vector
+  difficulty: Medium
+- id: Q005
+  question: How can I load a Microsoft Word document into a LangChain pipeline?
+  expected_answer_keywords:
+  - DocumentLoader
+  - Office
+  - Word
+  golden_doc_sources:
+  - how_to/document_loader_office_file.mdx
+  category: How-To
+  difficulty: Medium
+- id: Q006
+  question: Describe the Runnable protocol and its advantages.
+  expected_answer_keywords:
+  - batch
+  - async
+  - pipe
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Core
+  difficulty: Medium
+- id: Q007
+  question: What is Few-Shot prompting and how is it supported?
+  expected_answer_keywords:
+  - examples
+  - guidance
+  - prompt
+  golden_doc_sources:
+  - concepts/few_shot_prompting.mdx
+  category: Prompting
+  difficulty: Medium
+- id: Q008
+  question: Give an example of a memory object that stores chat history.
+  expected_answer_keywords:
+  - ConversationBuffer
+  - chat_memory
+  golden_doc_sources:
+  - concepts/chat_history.mdx
+  category: Memory
+  difficulty: Medium
+- id: Q009
+  question: Outline the steps to trace a LangGraph flow in LangSmith.
+  expected_answer_keywords:
+  - tracing
+  - langgraph
+  - langsmith
+  golden_doc_sources:
+  - concepts/tracing.mdx
+  - how_to/langgraph_tracing.mdx
+  category: Tracing
+  difficulty: Hard
+- id: Q010
+  question: What packages must be pinned to use Pydantic v1 with LangChain?
+  expected_answer_keywords:
+  - pydantic-compat
+  - extra
+  golden_doc_sources:
+  - how_to/pydantic_compatibility.md
+  category: Compatibility
+  difficulty: Medium
+- id: Q011
+  question: Explain tool calling via OpenAI function messages in LangChain.
+  expected_answer_keywords:
+  - function_call
+  - arguments
+  golden_doc_sources:
+  - concepts/tool_calling.mdx
+  category: Tools
+  difficulty: Medium
+- id: Q012
+  question: How does Retrieval-Augmented Generation (RAG) work in LangChain?
+  expected_answer_keywords:
+  - retriever
+  - combine_docs
+  - chain
+  golden_doc_sources:
+  - concepts/rag.mdx
+  category: RAG
+  difficulty: Easy
+- id: Q013
+  question: Provide a code snippet to create embeddings with OpenAI via LangChain.
+  expected_answer_keywords:
+  - OpenAIEmbeddings
+  - text-embedding
+  golden_doc_sources:
+  - how_to/embed_text.mdx
+  - concepts/embedding_models.mdx
+  category: Embeddings
+  difficulty: Medium
+- id: Q014
+  question: List three callback events emitted during an LLM call.
+  expected_answer_keywords:
+  - on_llm_start
+  - on_llm_end
+  - on_chain_end
+  golden_doc_sources:
+  - concepts/callbacks.mdx
+  category: Callbacks
+  difficulty: Easy
+- id: Q015
+  question: Why would you use the AsyncRunnable interface?
+  expected_answer_keywords:
+  - concurrency
+  - await
+  - I/O
+  golden_doc_sources:
+  - concepts/async.mdx
+  category: Async
+  difficulty: Medium
+- id: Q016
+  question: What metrics does LangChain's evaluation module compute out-of-box?
+  expected_answer_keywords:
+  - exact_match
+  - BLEU
+  - F1
+  golden_doc_sources:
+  - concepts/evaluation.mdx
+  category: Eval
+  difficulty: Medium
+- id: Q017
+  question: Demonstrate how to chunk text using RecursiveCharacterTextSplitter.
+  expected_answer_keywords:
+  - chunk_size
+  - overlap
+  golden_doc_sources:
+  - concepts/text_splitters.mdx
+  category: Text
+  difficulty: Easy
+- id: Q018
+  question: What environment variable controls OpenAI API retries in LangChain?
+  expected_answer_keywords:
+  - OPENAI_MAX_RETRIES
+  golden_doc_sources:
+  - concepts/tokens.mdx
+  category: Ops
+  difficulty: Hard
+- id: Q019
+  question: How can key-value stores be used to cache intermediate chain output?
+  expected_answer_keywords:
+  - cache
+  - KV
+  - redis
+  golden_doc_sources:
+  - concepts/key_value_stores.mdx
+  category: Cache
+  difficulty: Medium
+- id: Q020
+  question: Explain "Multimodality" support in LangChain with an example.
+  expected_answer_keywords:
+  - image
+  - prompt
+  - vision
+  golden_doc_sources:
+  - concepts/multimodality.mdx
+  category: Advanced
+  difficulty: Hard
+- id: Q021
+  question: What is the LangChain architecture diagram trying to convey?
+  expected_answer_keywords:
+  - layers
+  - abstraction
+  golden_doc_sources:
+  - concepts/architecture.mdx
+  category: Core
+  difficulty: Easy
+- id: Q022
+  question: Provide two example selectors and when to use them.
+  expected_answer_keywords:
+  - semantic
+  - length
+  - mru
+  golden_doc_sources:
+  - concepts/example_selectors.mdx
+  category: Prompting
+  difficulty: Hard
+- id: Q023
+  question: How do OutputParsers simplify post-processing in LCEL?
+  expected_answer_keywords:
+  - parse
+  - structured
+  - pydantic
+  golden_doc_sources:
+  - concepts/output_parsers.mdx
+  category: Parsing
+  difficulty: Medium
+- id: Q024
+  question: Describe streaming chunk callbacks versus token callbacks.
+  expected_answer_keywords:
+  - on_llm_new_token
+  - on_generate
+  golden_doc_sources:
+  - concepts/streaming.mdx
+  category: Streaming
+  difficulty: Hard
+- id: Q025
+  question: What is the purpose of the `ConversationBufferMemory` class and when should it be used?
+  expected_answer_keywords:
+  - ConversationBufferMemory
+  - chat history
+  - longterm
+  golden_doc_sources:
+  - concepts/chat_history.mdx
+  category: Memory
+  difficulty: Easy
+- id: Q026
+  question: Which LangChain text splitter lets you split documents by tokens and why would you choose it over a character splitter?
+  expected_answer_keywords:
+  - TokenTextSplitter
+  - tokens
+  - overflow
+  golden_doc_sources:
+  - how_to/split_by_token.ipynb
+  - concepts/text_splitters.mdx
+  category: Text
+  difficulty: Medium
+- id: Q027
+  question: List two differences between `VectorStoreRetriever` and `EnsembleRetriever`.
+  expected_answer_keywords:
+  - ensemble
+  - multiple
+  - weighting
+  golden_doc_sources:
+  - concepts/retrievers.mdx
+  - how_to/ensemble_retriever.ipynb
+  category: RAG
+  difficulty: Medium
+- id: Q028
+  question: How can you configure a chat model to automatically retry on ratelimiting errors?
+  expected_answer_keywords:
+  - max_retries
+  - backoff
+  - rate
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  - how_to/chat_model_rate_limiting.ipynb
+  category: Ops
+  difficulty: Medium
+- id: Q029
+  question: Explain how `InjectedToolArg` affects a tool schema and give one use case.
+  expected_answer_keywords:
+  - hide
+  - runtime
+  - arguments
+  golden_doc_sources:
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Medium
+- id: Q030
+  question: Which decorator is recommended for quickly turning a Python function into a LangChain Tool?
+  expected_answer_keywords:
+  - "@tool"
+  - decorator
+  - schema
+  golden_doc_sources:
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Easy
+- id: Q031
+  question: Describe how to batch inputs through a Runnable for better throughput.
+  expected_answer_keywords:
+  - batch
+  - parallel
+  - max_concurrency
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Medium
+- id: Q032
+  question: What parameter in `RunnableConfig` controls the maximum number of parallel calls during batching?
+  expected_answer_keywords:
+  - max_concurrency
+  - RunnableConfig
+  - parallel
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Easy
+- id: Q033
+  question: Give an example of using `with_structured_output` to get JSON back from a chat model.
+  expected_answer_keywords:
+  - structured
+  - JSON
+  - with_structured_output
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  - concepts/structured_outputs.mdx
+  category: Structured
+  difficulty: Medium
+- id: Q034
+  question: What callback would you use to stream intermediate events from a Runnable?
+  expected_answer_keywords:
+  - astream_events
+  - callbacks
+  - stream
+  golden_doc_sources:
+  - concepts/streaming.mdx
+  - concepts/callbacks.mdx
+  category: Streaming
+  difficulty: Medium
+- id: Q035
+  question: Which two standard parameters influence generation randomness and length in chat models?
+  expected_answer_keywords:
+  - temperature
+  - max_tokens
+  - parameter
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Core
+  difficulty: Easy
+- id: Q036
+  question: How do you persist a FAISS vector store to disk?
+  expected_answer_keywords:
+  - save_local
+  - index
+  - faiss
+  golden_doc_sources:
+  - concepts/vectorstores.mdx
+  category: Vector
+  difficulty: Medium
+- id: Q037
+  question: Explain the difference between `stream` and `astream` methods on a Runnable.
+  expected_answer_keywords:
+  - sync
+  - async
+  - generator
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Async
+  difficulty: Easy
+- id: Q038
+  question: What feature does LangChain provide to ensure prompts fit within an LLM's context window?
+  expected_answer_keywords:
+  - truncation
+  - context window
+  - tokens
+  golden_doc_sources:
+  - concepts/tokens.mdx
+  - concepts/chat_models.mdx
+  category: Ops
+  difficulty: Hard
+- id: Q039
+  question: Name three message roles supported by LangChain chat messages.
+  expected_answer_keywords:
+  - system
+  - human
+  - assistant
+  golden_doc_sources:
+  - concepts/messages.mdx
+  category: Core
+  difficulty: Easy
+- id: Q040
+  question: How can you combine docs returned by a Retriever before passing to an LLM?
+  expected_answer_keywords:
+  - combine_documents_chain
+  - summarization
+  - chunks
+  golden_doc_sources:
+  - concepts/rag.mdx
+  category: RAG
+  difficulty: Medium
+- id: Q041
+  question: What does the `rate_limiter` parameter accept and why is it useful?
+  expected_answer_keywords:
+  - BaseRateLimiter
+  - throttle
+  - requests
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Ops
+  difficulty: Medium
+- id: Q042
+  question: Provide a code snippet to stream tokens from an OpenAI chat model using LCEL.
+  expected_answer_keywords:
+  - "|"
+  - stream
+  - invoke
+  golden_doc_sources:
+  - concepts/lcel.mdx
+  - concepts/streaming.mdx
+  category: LCEL
+  difficulty: Medium
+- id: Q043
+  question: Which notebook demonstrates how to track token usage costs per request?
+  expected_answer_keywords:
+  - llm_token_usage_tracking
+  - cost
+  - tokens
+  golden_doc_sources:
+  - how_to/llm_token_usage_tracking.ipynb
+  category: Ops
+  difficulty: Easy
+- id: Q044
+  question: What are tool artifacts and how can they be returned from a tool?
+  expected_answer_keywords:
+  - artifacts
+  - response_format
+  - content_and_artifact
+  golden_doc_sources:
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Medium
+- id: Q045
+  question: Explain how to asynchronously invoke a Runnable and await the result.
+  expected_answer_keywords:
+  - ainvoke
+  - await
+  - coroutine
+  golden_doc_sources:
+  - concepts/async.mdx
+  - concepts/runnables.mdx
+  category: Async
+  difficulty: Easy
+- id: Q046
+  question: Which two documents should you read to understand LangGraph node construction?
+  expected_answer_keywords:
+  - graph
+  - node
+  - state
+  golden_doc_sources:
+  - how_to/graph_constructing.ipynb
+  - concepts/runnables.mdx
+  category: LangGraph
+  difficulty: Hard
+- id: Q047
+  question: Describe the process of converting a Runnable into a Tool for agent use.
+  expected_answer_keywords:
+  - convert_runnable_to_tool
+  - bind_tools
+  - "@tool"
+  golden_doc_sources:
+  - how_to/convert_runnable_to_tool.ipynb
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Hard
+- id: Q048
+  question: What Python package contains community-contributed chat model integrations?
+  expected_answer_keywords:
+  - langchain-community
+  - integrations
+  - chat
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Integrations
+  difficulty: Easy
+- id: Q049
+  question: How can semantic caching improve LLM response times and what extra model does it rely on?
+  expected_answer_keywords:
+  - semantic cache
+  - embedding
+  - retriever
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  - concepts/embedding_models.mdx
+  category: Cache
+  difficulty: Hard
+- id: Q050
+  question: Which document loader would you use for processing JSON lines files?
+  expected_answer_keywords:
+  - JSONLoader
+  - json
+  - document
+  golden_doc_sources:
+  - how_to/document_loader_json.mdx
+  category: How-To
+  difficulty: Easy
+- id: Q051
+  question: What is an `OutputParser` and why is it useful in LCEL chains?
+  expected_answer_keywords:
+  - parse
+  - post-process
+  - structure
+  golden_doc_sources:
+  - concepts/output_parsers.mdx
+  category: Parsing
+  difficulty: Easy
+- id: Q052
+  question: Give an example selector that prioritizes shorter examples and describe its use case.
+  expected_answer_keywords:
+  - LengthBasedExampleSelector
+  - memory
+  - prompt
+  golden_doc_sources:
+  - concepts/example_selectors.mdx
+  category: Prompting
+  difficulty: Medium
+- id: Q053
+  question: Which environment variable can override OpenAI API base URL in LangChain?
+  expected_answer_keywords:
+  - OPENAI_BASE_URL
+  - proxy
+  - endpoint
+  golden_doc_sources:
+  - concepts/tokens.mdx
+  category: Ops
+  difficulty: Medium
+- id: Q054
+  question: Describe how to attach custom metadata to a Runnable run for later inspection in LangSmith.
+  expected_answer_keywords:
+  - metadata
+  - RunnableConfig
+  - tags
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  - concepts/callbacks.mdx
+  category: Tracing
+  difficulty: Hard
+- id: Q055
+  question: What does the `configurable_fields` helper enable for advanced chains?
+  expected_answer_keywords:
+  - runtime
+  - temperature
+  - attribute
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Advanced
+  difficulty: Medium
+- id: Q056
+  question: Name two ChatModel parameters that help avoid exceeding rate limits.
+  expected_answer_keywords:
+  - rate_limiter
+  - max_retries
+  - timeout
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Ops
+  difficulty: Easy
+- id: Q057
+  question: How do you specify a custom UUID for a Runnable run?
+  expected_answer_keywords:
+  - run_id
+  - uuid
+  - config
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Tracing
+  difficulty: Medium
+- id: Q058
+  question: Compare `batch` and `batch_as_completed` when processing multiple inputs.
+  expected_answer_keywords:
+  - order
+  - parallel
+  - completion
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Medium
+- id: Q059
+  question: How can LangChain assist with evaluating generated answers automatically?
+  expected_answer_keywords:
+  - evaluation
+  - metrics
+  - exact_match
+  golden_doc_sources:
+  - concepts/evaluation.mdx
+  category: Eval
+  difficulty: Easy
+- id: Q060
+  question: Provide two metrics supported by LangChain's built in evaluation module.
+  expected_answer_keywords:
+  - bleu
+  - f1
+  - exact_match
+  golden_doc_sources:
+  - concepts/evaluation.mdx
+  category: Eval
+  difficulty: Easy
+- id: Q061
+  question: Which LangChain concept allows combining multiple Runnables with the `|` operator?
+  expected_answer_keywords:
+  - LCEL
+  - pipe
+  - composition
+  golden_doc_sources:
+  - concepts/lcel.mdx
+  category: LCEL
+  difficulty: Easy
+- id: Q062
+  question: Explain how to set up tool streaming so that tool results are incrementally passed back to the model.
+  expected_answer_keywords:
+  - tool_streaming
+  - events
+  - callback
+  golden_doc_sources:
+  - how_to/tool_streaming.ipynb
+  - concepts/tools.mdx
+  category: Streaming
+  difficulty: Hard
+- id: Q063
+  question: What is the benefit of using `RunnableLambda` over subclassing a Runnable?
+  expected_answer_keywords:
+  - simple
+  - function
+  - custom logic
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Medium
+- id: Q064
+  question: Which two documents together explain how to build a streaming question answering chain with citations?
+  expected_answer_keywords:
+  - qa_citations
+  - streaming
+  - combine_docs
+  golden_doc_sources:
+  - how_to/qa_streaming.ipynb
+  - concepts/rag.mdx
+  category: RAG
+  difficulty: Hard
+- id: Q065
+  question: How do you measure BLEU score in LangChain evaluations?
+  expected_answer_keywords:
+  - bleu
+  - EvaluationResult
+  - metric
+  golden_doc_sources:
+  - concepts/evaluation.mdx
+  category: Eval
+  difficulty: Medium
+- id: Q066
+  question: What does the `ConversationBufferWindowMemory` keep in memory?
+  expected_answer_keywords:
+  - window
+  - recent
+  - messages
+  golden_doc_sources:
+  - concepts/chat_history.mdx
+  category: Memory
+  difficulty: Easy
+- id: Q067
+  question: Name a loader designed specifically for PDF files in LangChain.
+  expected_answer_keywords:
+  - PDFLoader
+  - pdf
+  - document
+  golden_doc_sources:
+  - how_to/document_loader_pdf.ipynb
+  category: How-To
+  difficulty: Easy
+- id: Q068
+  question: Which concept guide covers the standard streaming APIs exposed by Runnables?
+  expected_answer_keywords:
+  - streaming
+  - astream
+  - pipe
+  golden_doc_sources:
+  - concepts/streaming.mdx
+  category: Streaming
+  difficulty: Easy
+- id: Q069
+  question: What is the advantage of using `LangServe` with Runnables?
+  expected_answer_keywords:
+  - openapi
+  - input validation
+  - deployment
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Advanced
+  difficulty: Medium
+- id: Q070
+  question: Explain how ChatModels support multimodal inputs.
+  expected_answer_keywords:
+  - images
+  - audio
+  - multimodality
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  - concepts/multimodality.mdx
+  category: Advanced
+  difficulty: Hard
+- id: Q071
+  question: What two steps are recommended to recover from ratelimiting errors?
+  expected_answer_keywords:
+  - wait
+  - retry
+  - fallback
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Ops
+  difficulty: Medium
+- id: Q072
+  question: Which parameter allows a Runnable to stream events as JSON for UIs?
+  expected_answer_keywords:
+  - include_usage
+  - stream_events
+  - json
+  golden_doc_sources:
+  - concepts/streaming.mdx
+  category: Streaming
+  difficulty: Medium
+- id: Q073
+  question: Provide a code snippet to embed text with a local HuggingFace model.
+  expected_answer_keywords:
+  - HuggingFaceEmbeddings
+  - model_name
+  - text
+  golden_doc_sources:
+  - how_to/custom_embeddings.ipynb
+  category: Embeddings
+  difficulty: Medium
+- id: Q074
+  question: How does the `ContextualCompressionRetriever` reduce context windows?
+  expected_answer_keywords:
+  - compression
+  - summary
+  - splitter
+  golden_doc_sources:
+  - how_to/contextual_compression.ipynb
+  category: RAG
+  difficulty: Hard
+- id: Q075
+  question: What guide should you consult for configuring runtime chain internals like temperature?
+  expected_answer_keywords:
+  - configure
+  - configurable_fields
+  - runtime
+  golden_doc_sources:
+  - how_to/configure.ipynb
+  - concepts/runnables.mdx
+  category: Advanced
+  difficulty: Medium
+- id: Q076
+  question: Which selector uses Maximal Marginal Relevance (MMR) to diversify examples?
+  expected_answer_keywords:
+  - MMR
+  - ExampleSelector
+  - diversity
+  golden_doc_sources:
+  - example_selectors_mmr.ipynb
+  - concepts/example_selectors.mdx
+  category: Prompting
+  difficulty: Medium
+- id: Q077
+  question: What is the recommended way to expose tool schemas to chat models that use OpenAI function calling?
+  expected_answer_keywords:
+  - bind_tools
+  - schema
+  - function_call
+  golden_doc_sources:
+  - concepts/tool_calling.mdx
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Medium
+- id: Q078
+  question: Explain the advantage of using `batch_as_completed` for long running tasks.
+  expected_answer_keywords:
+  - out_of_order
+  - faster
+  - first
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Medium
+- id: Q079
+  question: Which two files outline strategies to trim messages to fit the context window?
+  expected_answer_keywords:
+  - trim_messages
+  - context
+  - tokens
+  golden_doc_sources:
+  - how_to/trim_messages.ipynb
+  - concepts/tokens.mdx
+  category: Ops
+  difficulty: Hard
+- id: Q080
+  question: What does the `max_concurrency` field not control when using a ChatModel?
+  expected_answer_keywords:
+  - rate limits
+  - rate_limiter
+  - api
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Ops
+  difficulty: Easy
+- id: Q081
+  question: Which document explains how to call tools in parallel with OpenAI?
+  expected_answer_keywords:
+  - tool_calling_parallel
+  - parallel
+  - openai
+  golden_doc_sources:
+  - tool_calling_parallel.ipynb
+  - concepts/tool_calling.mdx
+  category: Tools
+  difficulty: Hard
+- id: Q082
+  question: Describe how `RunnableGenerator` differs from `RunnableLambda`.
+  expected_answer_keywords:
+  - streaming
+  - generator
+  - custom
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Medium
+- id: Q083
+  question: Which vector store integration supports time weighted relevance?
+  expected_answer_keywords:
+  - time_weighted_vectorstore
+  - recency
+  - decay
+  golden_doc_sources:
+  - how_to/time_weighted_vectorstore.ipynb
+  - concepts/vectorstores.mdx
+  category: Vector
+  difficulty: Hard
+- id: Q084
+  question: Explain how to use `run_name` for easier debugging in LangSmith.
+  expected_answer_keywords:
+  - run_name
+  - trace
+  - logs
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  - concepts/callbacks.mdx
+  category: Tracing
+  difficulty: Easy
+- id: Q085
+  question: Which two parameters must be provided to initialize `AzureAIDocumentIntelligenceLoader`?
+  expected_answer_keywords:
+  - endpoint
+  - key
+  - region
+  golden_doc_sources:
+  - how_to/document_loader_office_file.mdx
+  category: Integrations
+  difficulty: Medium
+- id: Q086
+  question: What is the main benefit of `asam_stream` events over `astream`?
+  expected_answer_keywords:
+  - intermediate steps
+  - fine grained
+  - events
+  golden_doc_sources:
+  - concepts/streaming.mdx
+  category: Streaming
+  difficulty: Hard
+- id: Q087
+  question: How do you specify hidden arguments in a Tool so the model cannot set them?
+  expected_answer_keywords:
+  - InjectedToolArg
+  - hidden
+  - schema
+  golden_doc_sources:
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Easy
+- id: Q088
+  question: Which guide demonstrates building a SQL retriever over a large database?
+  expected_answer_keywords:
+  - sql_large_db
+  - retriever
+  - database
+  golden_doc_sources:
+  - how_to/sql_large_db.ipynb
+  category: RAG
+  difficulty: Medium
+- id: Q089
+  question: Why is semantic caching unlikely to hit after the first chat turn?
+  expected_answer_keywords:
+  - unique prompts
+  - variance
+  - cache miss
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Cache
+  difficulty: Hard
+- id: Q090
+  question: Describe a use case for `RecursiveCharacterTextSplitter`.
+  expected_answer_keywords:
+  - hierarchy
+  - recursive
+  - adapt
+  golden_doc_sources:
+  - concepts/text_splitters.mdx
+  category: Text
+  difficulty: Easy
+- id: Q091
+  question: Give two methods to stream output from a ChatModel.
+  expected_answer_keywords:
+  - stream
+  - astream
+  - astream_events
+  golden_doc_sources:
+  - concepts/streaming.mdx
+  category: Streaming
+  difficulty: Medium
+- id: Q092
+  question: Which document teaches you to build a hybrid search retriever combining keyword and vector?
+  expected_answer_keywords:
+  - hybrid
+  - keyword
+  - hybrid search
+  golden_doc_sources:
+  - how_to/hybrid.ipynb
+  category: Vector
+  difficulty: Medium
+- id: Q093
+  question: What is the purpose of `annotated` type hints in tool schemas?
+  expected_answer_keywords:
+  - description
+  - Annotated
+  - schema
+  golden_doc_sources:
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Medium
+- id: Q094
+  question: Explain why caching chat model responses is challenging.
+  expected_answer_keywords:
+  - uniqueness
+  - semantic
+  - context
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Cache
+  difficulty: Medium
+- id: Q095
+  question: Which two docs together explain trimming long documents before embedding?
+  expected_answer_keywords:
+  - recursive_text_splitter
+  - chunk_size
+  - overlap
+  golden_doc_sources:
+  - how_to/recursive_text_splitter.ipynb
+  - concepts/text_splitters.mdx
+  category: Embeddings
+  difficulty: Hard
+- id: Q096
+  question: What class enables you to get structured JSON output directly from LLMS without a parser?
+  expected_answer_keywords:
+  - with_structured_output
+  - schema
+  - ChatModel
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  - concepts/structured_outputs.mdx
+  category: Structured
+  difficulty: Medium
+- id: Q097
+  question: Name three built in message field keys aside from `content`.
+  expected_answer_keywords:
+  - role
+  - name
+  - metadata
+  golden_doc_sources:
+  - concepts/messages.mdx
+  category: Core
+  difficulty: Easy
+- id: Q098
+  question: What is the first step when creating a custom Runnable for streaming transformations?
+  expected_answer_keywords:
+  - RunnableGenerator
+  - yield
+  - events
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Medium
+- id: Q099
+  question: How does LangChain differentiate official vs community chat model integrations?
+  expected_answer_keywords:
+  - langchain-<provider>
+  - community
+  - package
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Integrations
+  difficulty: Easy
+- id: Q100
+  question: Which two sources explain creating example selectors based on semantic similarity?
+  expected_answer_keywords:
+  - semantic
+  - similarity
+  - example selector
+  golden_doc_sources:
+  - example_selectors_similarity.ipynb
+  - concepts/example_selectors.mdx
+  category: Prompting
+  difficulty: Hard
+- id: Q101
+  question: What is the impact of not propagating `RunnableConfig` in Python 3.10 async code?
+  expected_answer_keywords:
+  - contextvars
+  - callbacks
+  - missing
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Async
+  difficulty: Hard
+- id: Q102
+  question: Describe the `@tool` option to hide a parameter while still injecting it at runtime.
+  expected_answer_keywords:
+  - InjectedToolArg
+  - hidden
+  - runtime
+  golden_doc_sources:
+  - concepts/tools.mdx
+  category: Tools
+  difficulty: Easy
+- id: Q103
+  question: Which notebook illustrates using an ensemble retriever strategy?
+  expected_answer_keywords:
+  - ensemble_retriever
+  - multiple
+  - weighting
+  golden_doc_sources:
+  - how_to/ensemble_retriever.ipynb
+  category: RAG
+  difficulty: Medium
+- id: Q104
+  question: Give two benefits of the LangChain Expression Language (LCEL).
+  expected_answer_keywords:
+  - composability
+  - readability
+  - pipe
+  golden_doc_sources:
+  - concepts/lcel.mdx
+  category: LCEL
+  difficulty: Easy
+- id: Q105
+  question: What is the main purpose of the `rate_limiter` argument on ChatModels?
+  expected_answer_keywords:
+  - throttle
+  - requests
+  - limit
+  golden_doc_sources:
+  - concepts/chat_models.mdx
+  category: Ops
+  difficulty: Easy
+- id: Q106
+  question: How many tokens is 100 English words approximately equal to?
+  expected_answer_keywords:
+  - 75
+  - tokens
+  - approximate
+  golden_doc_sources:
+  - concepts/tokens.mdx
+  category: Core
+  difficulty: Easy
+- id: Q107
+  question: Explain the difference between `invoke` and `ainvoke`.
+  expected_answer_keywords:
+  - sync
+  - async
+  - coroutine
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Async
+  difficulty: Easy
+- id: Q108
+  question: What does `batch_as_completed` return with each result to help match inputs?
+  expected_answer_keywords:
+  - input index
+  - order
+  - mapping
+  golden_doc_sources:
+  - concepts/runnables.mdx
+  category: Runnables
+  difficulty: Medium
+- id: Q109
+  question: Why might you choose Chroma over FAISS for prototyping?
+  expected_answer_keywords:
+  - serverless
+  - persistence
+  - simplicity
+  golden_doc_sources:
+  - concepts/vectorstores.mdx
+  category: Vector
+  difficulty: Medium

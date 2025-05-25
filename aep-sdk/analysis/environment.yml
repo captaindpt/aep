@@ -1,0 +1,20 @@
+name: aep-analysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - notebook # For classic Jupyter Notebook interface
+  # - jupyterlab # Uncomment this line and comment 'notebook' if you prefer JupyterLab
+  - ipykernel # Required to create a Jupyter kernel for this environment
+  - jupytext # For using the conversion script and potentially syncing .md files with notebooks
+  - pandas # For data manipulation and analysis
+  - numpy # For numerical operations
+  - matplotlib # For creating static, interactive, and animated visualizations
+  - seaborn # For enhanced statistical data visualization
+  - scikit-learn # For machine learning tools, including evaluation metrics
+  # Add any other specific libraries your 'eval_notebook_content.md' might require below
+  - pip:
+    # The local aep-sdk package will be installed via pip after the environment is created.
+    # See instructions.
+    - pyarrow # For efficient Arrow-based columnar data processing, often used with pandas 

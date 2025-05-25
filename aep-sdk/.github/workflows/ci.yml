@@ -1,0 +1,79 @@
+name: Python CI
+
+on: [push, pull_request]
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # BANNED_PYTHONS = 3.12 - this is a comment, not actual matrix config
+        # We will test only on 3.11 as specified by pyproject.toml and run-book
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v3
+        # Default version of poetry installed by this action should be fine.
+        # If specific version needed: with: { poetry-version: '1.8.3' }
+
+      - name: Configure Poetry to use Python from matrix
+        run: poetry env use ${{ matrix.python-version }}
+      
+      - name: Install dependencies (including dev for pytest)
+        run: poetry install --all-extras # Installs main, dev, and any other groups
+        # The run-book specified --no-root for CI, but if tests need the local package, omit it.
+        # For running pytest against the local 'aep' package, it needs to be installed.
+        # poetry install (without --no-root) installs the current project in editable mode.
+
+      - name: Install SWIG and libomp-dev (for faiss-cpu build if not cached or wheel unavailable)
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y swig libomp-dev
+      
+      - name: Run Pytest
+        run: poetry run pytest -q aep/tests/ # Explicitly target tests in aep/tests
+
+      # Placeholder for running analysis/run_eval.py
+      # This step depends on: 
+      #   1. The eval notebook being converted to a runnable .py script (e.g., analysis/run_eval.py)
+      #   2. The script exiting with 0 if Recall@10 >= 0.68, non-zero otherwise.
+      #   3. OPENAI_API_KEY being available as a secret in GitHub Actions.
+      # - name: Run Evaluation Script
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main' # Example: run only on push to main
+      #   env:
+      #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} 
+      #     PYTHONPATH: "." # Ensure aep-sdk root is in pythonpath for imports
+      #   run: poetry run python analysis/run_eval.py
+
+      - name: Upload AEP Ledgers (if any produced by tests/eval)
+        uses: actions/upload-artifact@v4
+        if: always() # Always run this step to capture ledgers even if tests fail
+        with:
+          name: aep-ledgers-ci-run-${{ github.run_id }}
+          path: |
+            data/.aep/**/*.aep*
+            **/test_aep_ledger_data/**/*.aep*
+            aep-sdk/data/.aep/**/*.aep* # If paths are relative to workspace root in some logs
+            ./data/.aep/**/*.aep* # If paths are relative to aep-sdk root
+          if-no-files-found: ignore
+
+      # Example of linting (optional, add to pyproject.toml dev dependencies first)
+      # - name: Lint with Ruff (example)
+      #   run: |
+      #     poetry run pip install ruff
+      #     poetry run ruff check .
+      # - name: Format with Black (example)
+      #   run: |
+      #     poetry run pip install black
+      #     poetry run black --check . 
